@@ -17,7 +17,7 @@ public class Main {
         Passenger passenger;
         int idCount = 1;
         boolean flag = true;
-        while(flag) {
+        while (flag) {
             System.out.println("----Menu----");
             System.out.println("1. Enter passenger details");
             System.out.println("2. Exit\n");
@@ -31,8 +31,14 @@ public class Main {
                         System.out.print("Enter name:\t");
                         String name = scanner.nextLine();
 
-                        System.out.print("Enter phone number:\t");
-                        String phoneNumber = scanner.nextLine();
+                        System.out.print("Enter phone area code:\t");
+                        String areaCode = scanner.nextLine();
+
+                        System.out.print("Enter phone prefix:\t");
+                        String prefix = scanner.nextLine();
+
+                        System.out.print("Enter phone line number:\t");
+                        String lineNumber = scanner.nextLine();
 
                         System.out.print("Enter street:\t");
                         String street = scanner.nextLine();
@@ -51,7 +57,9 @@ public class Main {
                         passenger.setNumber(number);
                         passenger.setStreet(street);
                         passenger.setZipCode(zipCode);
-                        passenger.setPhoneNumber(phoneNumber);
+                        passenger.setAreaCode(areaCode);
+                        passenger.setPrefix(prefix);
+                        passenger.setLineNumber(lineNumber);
 
                         em.persist(passenger);
                     }
@@ -61,7 +69,7 @@ public class Main {
                     }
                     default -> System.out.println("Wrong option selected.\nPlease try again.");
                 }
-            } catch(InputMismatchException e){
+            } catch (InputMismatchException e) {
                 flag = false;
                 System.out.println("Invalid Option");
                 System.out.println("Transaction Cancelled");

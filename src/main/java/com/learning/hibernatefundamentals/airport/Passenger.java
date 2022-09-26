@@ -19,8 +19,14 @@ public class Passenger {
     @Column(name = "PASSENGER_NAME", table = "PASSENGERS")
     private String name;
 
-    @Column(name = "PASSENGER_PHONE", table = "PHONES", columnDefinition = "varchar(12) not null")
-    private String phoneNumber;
+    @Column(name = "AREA_CODE", table = "PHONES", columnDefinition = "varchar(5) not null")
+    private String areaCode;
+
+    @Column(name = "PREFIX", table = "PHONES", columnDefinition = "varchar(5) not null")
+    private String prefix;
+
+    @Column(name = "LINE_NUMBER", table = "PHONES", columnDefinition = "varchar(10) not null")
+    private String lineNumber;
 
     @Column(name = "STREET", table = "ADDRESSES", columnDefinition = "varchar(25) not null")
     private String street;
@@ -42,12 +48,44 @@ public class Passenger {
     public Passenger() {
     }
 
-    public String getPhoneNumber() {
-        return phoneNumber;
+    public int getId() {
+        return id;
     }
 
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getAreaCode() {
+        return areaCode;
+    }
+
+    public void setAreaCode(String areaCode) {
+        this.areaCode = areaCode;
+    }
+
+    public String getPrefix() {
+        return prefix;
+    }
+
+    public void setPrefix(String prefix) {
+        this.prefix = prefix;
+    }
+
+    public String getLineNumber() {
+        return lineNumber;
+    }
+
+    public void setLineNumber(String lineNumber) {
+        this.lineNumber = lineNumber;
     }
 
     public String getStreet() {
@@ -80,21 +118,5 @@ public class Passenger {
 
     public void setCity(String city) {
         this.city = city;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 }
