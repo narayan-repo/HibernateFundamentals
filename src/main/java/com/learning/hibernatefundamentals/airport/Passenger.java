@@ -4,8 +4,12 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "PASSENGERS")
-@SecondaryTable(name = "ADDRESSES",
-        pkJoinColumns = @PrimaryKeyJoinColumn(name = "PASSENGER_ID", referencedColumnName = "PASSENGER_ID"))
+@SecondaryTables(
+        {
+                @SecondaryTable(name = "ADDRESSES", pkJoinColumns = @PrimaryKeyJoinColumn(name = "PASSENGER_ID", referencedColumnName = "PASSENGER_ID")),
+                @SecondaryTable(name = "PHONES", pkJoinColumns = @PrimaryKeyJoinColumn(name = "PASSENGER_ID", referencedColumnName = "PASSENGER_ID"))
+        }
+)
 public class Passenger {
 
     @Id
@@ -14,6 +18,9 @@ public class Passenger {
 
     @Column(name = "PASSENGER_NAME", table = "PASSENGERS")
     private String name;
+
+    @Column(name = "PASSENGER_PHONE", table = "PHONES", columnDefinition = "varchar(12) not null")
+    private String phoneNumber;
 
     @Column(name = "STREET", table = "ADDRESSES", columnDefinition = "varchar(25) not null")
     private String street;
@@ -33,6 +40,14 @@ public class Passenger {
     }
 
     public Passenger() {
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
     public String getStreet() {

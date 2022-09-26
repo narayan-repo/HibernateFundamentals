@@ -31,6 +31,9 @@ public class Main {
                         System.out.print("Enter name:\t");
                         String name = scanner.nextLine();
 
+                        System.out.print("Enter phone number:\t");
+                        String phoneNumber = scanner.nextLine();
+
                         System.out.print("Enter street:\t");
                         String street = scanner.nextLine();
 
@@ -48,6 +51,7 @@ public class Main {
                         passenger.setNumber(number);
                         passenger.setStreet(street);
                         passenger.setZipCode(zipCode);
+                        passenger.setPhoneNumber(phoneNumber);
 
                         em.persist(passenger);
                     }
