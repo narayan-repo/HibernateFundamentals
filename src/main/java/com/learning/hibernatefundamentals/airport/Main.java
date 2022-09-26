@@ -31,10 +31,24 @@ public class Main {
                         System.out.print("Enter name:\t");
                         String name = scanner.nextLine();
 
-                        System.out.print("Enter address:\t");
-                        String address = scanner.nextLine();
+                        System.out.print("Enter street:\t");
+                        String street = scanner.nextLine();
 
-                        passenger = new Passenger(idCount++, name, address);
+                        System.out.print("Enter number:\t");
+                        String number = scanner.nextLine();
+
+                        System.out.print("Enter zipCode:\t");
+                        String zipCode = scanner.nextLine();
+
+                        System.out.print("Enter city:\t");
+                        String city = scanner.nextLine();
+
+                        passenger = new Passenger(idCount++, name);
+                        passenger.setCity(city);
+                        passenger.setNumber(number);
+                        passenger.setStreet(street);
+                        passenger.setZipCode(zipCode);
+
                         em.persist(passenger);
                     }
                     case 2 -> {
