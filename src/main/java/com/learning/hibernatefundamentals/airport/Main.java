@@ -79,5 +79,6 @@ public class Main {
             }
         }
         em.close();
+        scanner.close();
     }
 }
